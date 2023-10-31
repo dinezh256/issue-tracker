@@ -10,9 +10,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Callout, TextField } from "@radix-ui/themes";
 
 import { createIssueSchema } from "@/app/validationSchema";
-import ErrorMessage from "@/app/components/ErrorMessage";
+import { ErrorMessage, Spinner } from "@/app/components";
 import "easymde/dist/easymde.min.css";
-import Spinner from "@/app/components/Spinner";
 
 const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
   ssr: false,
