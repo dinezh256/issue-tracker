@@ -36,7 +36,7 @@ const NewIssuePage = () => {
       router.push("/issues");
     } catch (error) {
       setSubmitting(false);
-      setError("An Unexpected error occured.");
+      setError("An Unexpected error occurred.");
     }
   });
 
@@ -47,7 +47,7 @@ const NewIssuePage = () => {
           <Callout.Text>{error}</Callout.Text>
         </Callout.Root>
       )}
-      <form className="space-y-2" onSubmit={onSubmit}>
+      <form className="space-y-3" onSubmit={onSubmit}>
         <TextField.Root>
           <TextField.Input placeholder="Title" {...register("title")} />
         </TextField.Root>

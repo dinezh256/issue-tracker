@@ -16,7 +16,7 @@ const IssueDetailPage = async ({ params }: Props) => {
   if (!issue) notFound();
 
   return (
-    <div>
+    <div className="max-w-xl">
       <Heading>{issue.title}</Heading>
       <Flex className="space-x-3" my="2">
         <IssueStatusBadge status={issue.status} />
