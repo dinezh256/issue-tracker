@@ -7,7 +7,7 @@ const EditIssueButton = ({ issueId }: { issueId: number }) => {
   return (
     <Button className="cursor-pointer">
       <Link href={`/issues/${issueId}/edit`}>
-        <Flex gap="2" align="center">
+        <Flex gap="3" align="center">
           <Pencil2Icon />
           <Text>Edit Issue</Text>
         </Flex>
