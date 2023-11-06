@@ -6,7 +6,7 @@ import React from "react";
 const EditIssueButton = ({ issueId }: { issueId: number }) => {
   return (
     <Button className="cursor-pointer">
-      <Link href={`/issues/${issueId}/edit`}>
+      <Link href={`/issues/edit/${issueId}`}>
         <Flex gap="3" align="center">
           <Pencil2Icon />
           <Text>Edit Issue</Text>
