@@ -15,18 +15,17 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
   if (error) return null;
 
   const assignIssue = (userId: string) => {
-    axios
-      .patch("/api/issues/" + issue.id, {
-        assignedToUserId: userId === "Unassigned" ? null : userId,
-      })
-      .then(() => {
-        toast.success(
-          userId === "Unassigned" ? "Issue Unassigned" : "Issue assigned"
-        );
-      })
-      .catch(() => {
-        toast.error("Changes could not be saved.");
-      });
+    const unassignIssue = userId === "Unassigned"
+    toast.promise(
+      axios.patch("/api/issues/" + issue.id, {
+        assignedToUserId: unassignIssue ? null : userId,
+      }),
+      {
+        loading: "Saving...",
+        success: <b>{unassignIssue ? "Issue Unassigned" : "Issue assigned"}</b>,
+        error: <b>Changes could not be saved</b>,
+      }
+    );
   };
 
   return (
@@ -48,7 +47,7 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
           </Select.Group>
         </Select.Content>
       </Select.Root>
-      <Toaster />
+      <Toaster position="bottom-center" />
     </>
   );
 };
