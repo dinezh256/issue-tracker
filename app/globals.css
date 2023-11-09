@@ -23,3 +23,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.CodeMirror-scroll {
+	max-height: 240px !important;
+	min-height: 240px !important;
+}
+
+.CodeMirror {
+	height: 260px !important;
+}
