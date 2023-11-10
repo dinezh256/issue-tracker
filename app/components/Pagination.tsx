@@ -27,6 +27,10 @@ const Pagination = ({ itemCount, pageSize, currentPage }: Props) => {
     params.set("page", page.toString());
     router.push("?" + params.toString());
   };
+
+  const isFirstPage = currentPage === 1;
+  const isLastPage = currentPage === pageCount;
+
   return (
     <Flex gap="3" align="center">
       <Text size="2">
@@ -35,32 +39,36 @@ const Pagination = ({ itemCount, pageSize, currentPage }: Props) => {
       <Button
         color="gray"
         variant="soft"
-        disabled={currentPage === 1}
+        disabled={isFirstPage}
         onClick={() => changePage(1)}
+        className={isFirstPage ? "cursor-not-allowed" : "cursor-pointer"}
       >
         <DoubleArrowLeftIcon />
       </Button>
       <Button
         color="gray"
         variant="soft"
-        disabled={currentPage === 1}
+        disabled={isFirstPage}
         onClick={() => changePage(currentPage - 1)}
+        className={isFirstPage ? "cursor-not-allowed" : "cursor-pointer"}
       >
         <ChevronLeftIcon />
       </Button>
       <Button
         color="gray"
         variant="soft"
-        disabled={currentPage === pageCount}
+        disabled={isLastPage}
         onClick={() => changePage(currentPage + 1)}
+        className={isLastPage ? "cursor-not-allowed" : "cursor-pointer"}
       >
         <ChevronRightIcon />
       </Button>
       <Button
         color="gray"
         variant="soft"
-        disabled={currentPage === pageCount}
+        disabled={isLastPage}
         onClick={() => changePage(pageCount)}
+        className={isLastPage ? "cursor-not-allowed" : "cursor-pointer"}
       >
         <DoubleArrowRightIcon />
       </Button>

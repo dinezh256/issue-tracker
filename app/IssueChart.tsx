@@ -17,7 +17,7 @@ const IssueChart = ({ open, inProgress, closed }: Props) => {
   ];
   return (
     <Card>
-      <ResponsiveContainer width="100%" height={320}>
+      <ResponsiveContainer width="100%" height={310}>
         <BarChart data={data}>
           <XAxis dataKey="label" />
           <YAxis />
