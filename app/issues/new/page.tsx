@@ -14,3 +14,8 @@ const NewIssuePage = () => {
 };
 
 export default NewIssuePage;
+
+export const metadata: Metadata = {
+  title: "Create a new Issue",
+  description: "Create a new project issue",
+};
