@@ -16,7 +16,7 @@ import { AiFillBug } from "react-icons/ai";
 import { Skeleton } from "@/app/components";
 
 const NavBar = () => (
-  <nav className="px-5 h-14 border-b mb-5 py-4">
+  <nav className="px-5 h-14 border-b mb-5 py-2">
     <Container>
       <Flex justify="between">
         <Flex align="center" gap="3">
@@ -31,6 +31,10 @@ const NavBar = () => (
   </nav>
 );
 
+const getFirstName = (name: string): string => {
+  return name.split(" ")[0];
+};
+
 const AuthStatus = () => {
   const { status, data: session } = useSession();
 
@@ -44,14 +48,22 @@ const AuthStatus = () => {
       <Box>
         <DropdownMenu.Root>
           <DropdownMenu.Trigger>
-            <Avatar
-              src={session!.user!.image!}
-              fallback="?"
-              size="1"
-              radius="full"
-              className="cursor-pointer"
-              referrerPolicy="no-referrer"
-            />
+            <Flex
+              gap="2"
+              className="p-2 rounded-md transition-all cursor-pointer hover:bg-slate-100"
+            >
+              <Text size="3" className="font-medium text-slate-500">
+                {getFirstName(session!.user!.name!)}
+              </Text>
+              <Avatar
+                src={session!.user!.image!}
+                fallback="?"
+                size="1"
+                radius="full"
+                className="cursor-pointer"
+                referrerPolicy="no-referrer"
+              />
+            </Flex>
           </DropdownMenu.Trigger>
           <DropdownMenu.Content>
             <DropdownMenu.Label>
