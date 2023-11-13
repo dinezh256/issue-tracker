@@ -3,6 +3,7 @@ import "./theme-config.css";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import NextTopLoader from 'nextjs-toploader';
 import { Container, Theme } from "@radix-ui/themes";
 
 import NavBar from "./NavBar";
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <QueryClientProvider>
           <AuthProvider>
             <Theme appearance="light" accentColor="violet">
+              <NextTopLoader />
               <NavBar />
               <main className="p-5">
                 <Container>{children}</Container>

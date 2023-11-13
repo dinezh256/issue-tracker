@@ -18,7 +18,7 @@ import { Skeleton } from "@/app/components";
 const NavBar = () => (
   <nav className="px-5 h-14 border-b mb-5 py-2">
     <Container>
-      <Flex justify="between">
+      <Flex justify="between" align="center">
         <Flex align="center" gap="3">
           <Link href="/">
             <AiFillBug />
@@ -38,7 +38,7 @@ const getFirstName = (name: string): string => {
 const AuthStatus = () => {
   const { status, data: session } = useSession();
 
-  if (status === "loading") return <Skeleton width="3rem" />;
+  if (status === "loading") return <Skeleton width="4rem" height="36px" />;
 
   if (status === "unauthenticated")
     return <Link href="/api/auth/signin">Login</Link>;
@@ -89,22 +89,21 @@ const NavLinks = () => {
   ];
 
   return (
-    <ul className="flex space-x-6">
+    <Flex gap="5" height="100%">
       {links.map(({ href, label }) => (
-        <li key={href}>
-          <Link
+        <Link key={href} href={href}>
+          <Text
             className={classNames({
               "text-zinc-900": href === currentPath,
               "text-zinc-500": href !== currentPath,
               "hover:text-zinc-800 transition-colors": true,
             })}
-            href={href}
           >
             {label}
-          </Link>
-        </li>
+          </Text>
+        </Link>
       ))}
-    </ul>
+    </Flex>
   );
 };
 
